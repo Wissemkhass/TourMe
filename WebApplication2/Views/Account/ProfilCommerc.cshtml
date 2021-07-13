@@ -1,0 +1,148 @@
+﻿@model Domaine.Entities.Commerçant
+@{
+    ViewBag.Title = "Commerçant";
+}
+
+<h1>Profil  @Html.Raw(Model.PersAContact)</h1>
+
+@{var photoPath = "~/images/" + (Model.ProfilePhoto ?? "noimage.jpg");
+
+}
+
+<script src="~/Theme/plugins/jquery/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<!--DASHBOARD-->
+<section>
+    @{ int a = 0;
+        <div class="db">
+            <!--LEFT SECTION-->
+            <div class="db-l">
+                <div class="db-l-1">
+                    <ul>
+                        <li>
+                            <img src="@photoPath" asp-append-version="true" alt="" />
+                            <a asp-action="ChangerPhoto" asp-controller="Account" asp-route-id="@Model.Id" class="waves-effect waves-light btn-sm"><b>Change photo</b></a>
+                        </li>
+                       
+
+                    </ul>
+                </div>
+                <div class="db-l-2">
+                    <ul>
+                        <li>
+                            <a asp-controller="Experience" asp-action="MesExperiences"><img src="~/Theme/Template2/images/icon/dbl1.png" alt="" /> Mes Expériences</a>
+                        </li>
+                        <li>
+                            <a href="db-travel-booking.html"><img src="~/Theme/Template2/images/icon/dbl2.png" alt="" /> Travel Bookings</a>
+                        </li>
+                        <li>
+                            <a href="db-hotel-booking.html"><img src="~/Theme/Template2/images/icon/dbl3.png" alt="" /> Hotel Bookings</a>
+                        </li>
+                        <li>
+                            <a href="db-event-booking.html"><img src="~/Theme/Template2/images/icon/dbl4.png" alt="" /> Event Bookings</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Account" asp-action="ProfilCommerc"><img src="~/Theme/Template2/images/icon/dbl6.png" alt="" /> My Profile</a>
+                        </li>
+                        <li>
+                            <a href="db-all-payment.html"><img src="~/Theme/Template2/images/icon/dbl9.png" alt="" /> Payments</a>
+                        </li>
+                        <li>
+                            <a href="db-refund.html"><img src="~/Theme/Template2/images/icon/dbl7.png" alt="" /> Claim & Refund</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--CENTER SECTION-->
+            <div class="db-2">
+                <div class="db-2-com db-2-main">
+                    <h4>My Profile</h4>
+                    <div class="db-2-main-com db-2-main-com-table">
+                        <form method="post" asp-controller="Account" asp-action="EditUser">
+
+
+                            <table class="responsive-table">
+
+                                <tbody>
+
+
+                                    <tr>
+
+                                        <td>Responsable</td>
+
+                                        <td>:</td>
+
+                                        <td>
+
+                                            <input class="form-control" asp-for="PersAContact" value="@Model.PersAContact">
+
+                                            @if (Model.PersAContact != null)
+                                            {
+                                                a += 20;
+                                            }
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>:</td>
+                                        <td>
+                                            <input class="form-control" asp-for="Email" value="@Model.Email">
+                                            @if (Model.Email != null)
+                                            {
+                                                a += 20;
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td>:</td>
+                                        <td>
+                                            <input class="form-control" asp-for="PhoneNumber" value="@Model.PhoneNumber">
+                                            @if (Model.Email != null)
+                                            {
+                                                a += 20;
+                                            }
+                                        </td>
+                                    </tr>
+        
+                                    <tr>
+                                        <td>Country</td>
+                                        <td>:</td>
+                                        <td> <input asp-for="Country" class="form-control" value="@Model.Country "></td>
+                                        @if (Model.Email != null)
+                                        {
+                                            a += 20;
+
+                                        }
+
+
+                                    </tr>
+                                    <span>@a%</span>du profile est complet
+                                  
+
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>:</td>
+                                        <td>
+                                            <span class="db-not-done">inactive</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="db-mak-pay-bot">
+                                <button type="submit" class="waves-effect waves-light btn-large">Edit my profile</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+           
+          
+        </div>
+    }
+</section>
+<!--END DASHBOARD-->

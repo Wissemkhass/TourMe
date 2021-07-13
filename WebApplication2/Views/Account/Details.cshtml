@@ -1,0 +1,89 @@
+﻿@model Domaine.Entities.Utilisateur
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Utilisateur</h4>
+    <hr />
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                   Nom
+                </th>
+                <th>
+                  Prénom
+                </th>
+
+                <th>
+                  Email
+                </th>
+       
+                <th>Profile Photo</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+
+ 
+            <tr>
+
+                <td>
+                    <p> @Model.Nom</p>
+
+                </td>
+                @if(Model.Prenom==null)
+                {
+            <td>
+               N/A 
+            </td>
+                }
+            <td>
+                @Model.Prenom
+            </td>
+                <td>
+                    @Model.Email
+                </td>
+                
+
+                <td>
+                    @{var photoPath1 = "~/images/" + (Model.ProfilePhoto ?? "noimage.jpg");
+
+                    }
+                    <img class="profile-user-img img-fluid img-circle" src="@photoPath1" asp-append-version="true" style="height:20px; width:50px;" alt="" />
+                </td>
+
+
+            </tr>
+            </tbody>
+        </table>
+
+
+
+
+    </div>
+<div class="card-body">
+  @{ 
+        foreach (var claim in ViewBag.Claims)
+        {
+            <h5 class="card-title">@claim.Type</h5><br />
+        }
+    }
+</div>
+@{ 
+    
+
+}
+<div>
+    <a asp-action="ManageUserClaims" asp-route-id="@Model.Id">ManageUserClaims</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="GetAll">Back to List</a>
+</div>

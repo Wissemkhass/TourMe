@@ -1,0 +1,383 @@
+﻿@inject SignInManager<Domaine.Entities.Utilisateur> signInManager;
+@using Microsoft.AspNetCore.Identity;
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from rn53themes.net/themes/demo/travelz/hotel-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Mar 2021 14:01:37 GMT -->
+<head>
+    <title>The Travel - Tour Travel</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:400,500,700" rel="stylesheet">
+    <!-- FONT-AWESOME ICON CSS -->
+    <link href="~/Theme/Template2/css/animate.css" rel="stylesheet" />
+    <link href="~/Theme/Template2/css/font-awesome.min.css" rel="stylesheet" />
+    <!--== ALL CSS FILES ==-->
+    <link href="~/Theme/Template2/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Theme/Template2/css/materialize.css" rel="stylesheet" />
+    <link href="~/Theme/Template2/css/mob.css" rel="stylesheet" />
+    <link href="~/Theme/Template2/css/style.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="~/Theme/Template2/~/Theme/Template2/js/html5shiv.js"></script>
+    <script src="~/Theme/Template2/~/Theme/Template2/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <section>
+        <div class="ed-mob-menu">
+            <div class="ed-mob-menu-con">
+                <div class="ed-mm-left">
+                    <div class="wed-logo">
+                        <a asp-action="Index" asp-controller="Home">
+                            <img src="~/Theme/Template2/~/Theme/Template2/images/logo.png" alt="" />
+                        </a>
+                    </div>
+                </div>
+                <div class="ed-mm-right">
+                    <div class="ed-mm-menu">
+                        <a href="#!" class="ed-micon"><i class="fa fa-bars"></i></a>
+                        <div class="ed-mm-inn">
+                            <a href="#!" class="ed-mi-close"><i class="fa fa-times"></i></a>
+                            <h4>Home pages</h4>
+                            <ul>
+                                <li><a href="booking-all.html">Home page 1</a></li>
+                                <li><a href="booking-all.html">Home page 2</a></li>
+
+                            </ul>
+
+
+                            <h4>User Dashboard</h4>
+                            <ul>
+                                <li><a href="dashboard.html">My Bookings</a></li>
+                                <li><a href="db-my-profile.html">My Profile</a></li>
+                                <li><a href="db-my-profile-edit.html">My Profile edit</a></li>
+                                <li><a href="db-travel-booking.html">Tour Packages</a></li>
+                                <li><a href="db-hotel-booking.html">Hotel Bookings</a></li>
+                                <li><a href="db-event-booking.html">Event bookings</a></li>
+                                <li><a href="db-payment.html">Make Payment</a></li>
+                                <li><a href="db-refund.html">Cancel Bookings</a></li>
+                                <li><a href="db-all-payment.html">Prient E-Tickets</a></li>
+                                <li><a href="db-event-details.html">Event booking details</a></li>
+                                <li><a href="db-hotel-details.html">Hotel booking details</a></li>
+                                <li><a href="db-travel-details.html">Travel booking details</a></li>
+                            </ul>
+
+                            <h4 class="ed-dr-men-mar-top">User login pages</h4>
+                            <ul>
+                                <li><a href="register.html">Register</a></li>
+                                <li><a href="login.html">Login and Sign in</a></li>
+                                <li><a href="forgot-pass.html">Forgot pass</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--HEADER SECTION-->
+    <section>
+        <!-- TOP BAR -->
+        <div class="ed-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ed-com-t1-left">
+                            <ul>
+                                <li>
+                                    <a href="#">Contact: Lake Road, Suite 180 Farmington Hills, U.S.A.</a>
+                                </li>
+                                <li>
+                                    <a href="#">Phone: +101-1231-1231</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ed-com-t1-right">
+                            @if (signInManager.IsSignedIn(User))
+                            {
+                                <form method="post" asp-controller="Account" asp-action="logout">
+
+                                    <button type="submit" class="btn btn-link" style="width:auto">
+                                        Logout @User.Identity.Name
+
+                                    </button>
+
+                                </form>
+                                @if (User.IsInRole("Commercant"))
+                                {<ul>
+
+                                        <li>
+                                            <a class="nav-link" asp-controller="Experience" asp-action="CreateExperience">Créer Experience</a>
+                                        </li>
+                                    </ul>} }
+                            else
+
+                            {
+
+                        <ul>
+                            <li>
+                                <a asp-controller="Account" asp-action="Login">Se Connecter</a>
+                            </li>
+                            <li>
+                                <a asp-controller="account" asp-action="RegisterUser">Register Utilisateur</a>
+                            </li>
+
+                            <li>
+                                <a style=" color:azure;
+                                                    padding: 7px 12px;
+                                                    line-height: 30px;
+                                                    font-size: 12px;
+                                                    background-color:darkblue;"
+                                   asp-controller="Service" asp-action="BecomeCommercant">Devenir Commerçant</a>
+                            </li>
+
+                            <li>
+                                <a style=" color:azure;
+                                                    padding: 7px 12px;
+                                                    line-height: 30px;
+                                                    font-size: 12px;
+                                                    background-color:darkturquoise;
+                                           " asp-controller="account" asp-action="RegisterCommercant">
+                                Devenir Hôte</a>
+                            </li>
+                        </ul>}
+                        </div>
+                        <div class="ed-com-t1-social">
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- LOGO AND MENU SECTION -->
+
+        <div class="top-logo" data-spy="affix" data-offset-top="250">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="wed-logo">
+                            <a asp-action="Index" asp-controller="Home">
+                                <img src="~/Theme/Template2/images/logo.png" alt="" />
+                            </a>
+                        </div>
+                        <div class="main-menu">
+                            <ul>
+                                <li>
+                                    <a href="main.html">Home</a>
+                                </li>
+                                <li class="about-menu">
+                                    <a href="family-package.html" class="mm-arr">Packages</a>
+                                    <!-- MEGA MENU 1 -->
+                                    <div class="mm-pos">
+                                        <div class="about-mm m-menu">
+                                            <div class="m-menu-inn">
+                                                <div class="mm1-com mm1-s1">
+                                                    <div class="ed-course-in">
+                                                        <a class="course-overlay menu-about" href="all-package.html">
+                                                            <img src="~/Theme/Template2/images/sight/5.jpg" alt="">
+                                                            <span>Popular Package</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="mm1-com mm1-s2">
+                                                    <p>Want to change the world? At Berkeley we’re doing just that. When you join the Golden Bear community, you’re part of an institution that shifts the global conversation every single day.</p>
+                                                    <a href="all-package.html" class="mm-r-m-btn">Read more</a>
+                                                </div>
+                                                <div class="mm1-com mm1-s3">
+                                                    <ul>
+                                                        <li><a href="booking-all.html">All Booking</a></li>
+
+                                                    </ul>
+                                                </div>
+                                                <div class="mm1-com mm1-s4">
+                                                    <ul>
+                                                        <li><a href="all-package.html">All Package</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="admi-menu">
+
+                                </li>
+                                <li><a href="hotels-list.html">Hotels</a></li>
+                                <!--<li><a class='dropdown-button ed-sub-menu' href='#' data-activates='dropdown1'>Courses</a></li>-->
+                                <li class="cour-menu">
+                                    <a asp-action="getAll" asp-controller="Experience">Expériences</a>
+                                    @if (User.IsInRole("Administrateur"))
+                                        {
+                                        <li><a asp-controller="Administration" asp-action="GetAllUsers" class="nav-link">GetAllAccounts</a></li>
+                                    }
+                                    <!-- MEGA MENU 1 -->
+                                    <div class="mm-pos">
+                                        <div class="cour-mm m-menu">
+                                            <div class="m-menu-inn">
+                                                <div class="mm1-com mm1-cour-com mm1-s3">
+
+                                                </div>
+                                                <div class="mm1-com mm1-cour-com mm1-s3">
+
+
+                                                </div>
+                                                <div class="mm1-com mm1-cour-com mm1-s3">
+                                                    <h4>User Dashboard</h4>
+                                                    <ul>
+                                                        @{ if (User.IsInRole("Administrateur"))
+                                                            {
+                                                                <li><a asp-controller="Account" asp-action="GetAll" class="nav-link">GetAllAccounts</a></li>
+                                                                <li><a asp-controller="Account" asp-action="GetAllCommercant" class="nav-link">GetAllCommercant</a></li>
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <li><a href="dashboard.html">My Bookings</a></li>
+                                                                <li><a href="db-my-profile.html">My Profile</a></li>
+                                                                <li><a href="db-my-profile-edit.html">My Profile edit</a></li>
+                                                                <li><a href="db-travel-booking.html">Tour Packages</a></li>
+                                                            } }
+
+
+                                                    </ul>
+                                                </div>
+                                                <div class="mm1-com mm1-cour-com mm1-s3">
+                                                    <h4>Other pages:1</h4>
+                                                    <ul>
+                                                        <li><a href="tour-details.html">Travel details</a></li>
+
+                                                    </ul>
+                                                    <h4 class="ed-dr-men-mar-top">User login pages</h4>
+                                                    <ul>
+                                                        <li><a href="register.html">Register</a></li>
+                                                        <li><a href="login.html">Login and Sign in</a></li>
+                                                        <li><a href="forgot-pass.html">Forgot pass</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mm1-com mm1-cour-com mm1-s4">
+                                                    <h4>Other pages:2</h4>
+                                                    <ul>
+                                                        <li><a href="about.html">About Us</a></li>
+                                                        <li><a href="testimonials.html">Testimonials</a></li>
+                                                        <li><a href="events.html">Events</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </li>
+                                    <li>
+                                        <a href="events.html">Events</a>
+                                    </li>
+                                    @if (User.IsInRole("Commercant"))
+                                    {
+                                        <li>
+
+                                            <a asp-controller="Account" asp-action="ProfilCommerc" class="nav-link">Profil</a>
+
+
+                                        </li>
+                                        <li>
+                                            <a asp-controller="Experience" asp-action="CreateExperience">Créer Experience</a>
+                                        </li>
+                                    }
+                                    @if (User.IsInRole("Utilisateur"))
+                                    {
+                                        <li>
+
+                                            <a asp-controller="Account" asp-action="Profil" class="nav-link">Profil</a>
+
+
+                                        </li>
+                                    }
+
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOP SEARCH BOX -->
+        <div class="search-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="search-form">
+                            <form class="tourz-search-form" method="get" asp-controller="Experience" asp-action="GetAll">
+                                <div class="input-field">
+                                    <input type="text" id="select-city" class="autocomplete">
+                                    <label for="select-city">Enter city</label>
+                                </div>
+                                <div class="input-field">
+
+                                    <input type="text" id="select-search" class="autocomplete" name="searchTerm">
+                                    <label for="select-search" class="search-hotel-type">Trouvez L'expérience que vous plaît!</label>
+
+
+                                </div>
+                                <div class="input-field">
+                                    <input type="submit" value="search" class="waves-effect waves-light tourz-sear-btn">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END TOP SEARCH BOX -->
+    <!--END HEADER SECTION-->
+    <!--====== BANNER ==========-->
+
+
+
+
+
+                    @RenderBody()
+              
+                @if (IsSectionDefined("Scripts"))
+                {
+                    @await RenderSectionAsync("Scripts", required: true)}
+   
+    <!--====== FOOTER - COPYRIGHT ==========-->
+    <!--========= Scripts ===========-->
+    <script src="~/Theme/Template2/js/jquery-latest.min.js"></script>
+    <script src="~/Theme/Template2/js/bootstrap.js"></script>
+    <script src="~/Theme/Template2/js/wow.min.js"></script>
+    <script src="~/Theme/Template2/js/materialize.min.js"></script>
+    <script src="~/Theme/Template2/js/custom.js"></script>
+
+</body>
+
+
+<!-- Mirrored from rn53themes.net/themes/demo/travelz/hotel-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Mar 2021 14:03:26 GMT -->
+</html>

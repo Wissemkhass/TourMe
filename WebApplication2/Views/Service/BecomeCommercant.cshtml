@@ -1,0 +1,809 @@
+﻿@model CommercentViewModel
+@{ Layout = null; }
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="apple-touch-icon" sizes="76x76" href="~/wizard/assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="~/wizard/assets/img/favicon.png" />
+    <title>The Travel - Tour Travel</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://www.creative-tim.com/product/paper-bootstrap-wizard" />
+
+    <meta name="keywords" content="wizard, bootstrap wizard, creative tim, long forms, 3 step wizard, sign up wizard, beautiful wizard, long forms wizard, wizard with validation, paper design, paper wizard bootstrap, bootstrap paper wizard">
+    <meta name="description" content="Paper Bootstrap Wizard is a fully responsive wizard that is inspired by our famous Paper Kit  and comes with 3 useful examples and 5 colors.">
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Paper Bootstrap Wizard by Creative Tim">
+    <meta itemprop="description" content="Paper Bootstrap Wizard is a fully responsive wizard that is inspired by our famous Paper Kit  and comes with 3 useful examples and 5 colors.">
+    <meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/49/opt_pbw_thumbnail.jpg">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Paper Bootstrap Wizard by Creative Tim">
+    <meta name="twitter:description" content="Paper Bootstrap Wizard is a fully responsive wizard that is inspired by our famous Paper Kit  and comes with 3 useful examples and 5 colors.">
+
+    <meta name="twitter:image" content="https://s3.amazonaws.com/creativetim_bucket/products/49/opt_pbw_thumbnail.jpg">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Paper Bootstrap Wizard by Creative Tim | Free Boostrap Wizard" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://demos.creative-tim.com/paper-bootstrap-wizard/wizard-list-place.html" />
+    <meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/49/opt_pbw_thumbnail.jpg" />
+    <meta property="og:description" content="Paper Bootstrap Wizard is a fully responsive wizard that is inspired by our famous Paper Kit  and comes with 3 useful examples and 5 colors." />
+    <meta property="og:site_name" content="Creative Tim" />
+
+    <!-- CSS Files -->
+    <link href="~/wizard/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/wizard/assets/css/paper-bootstrap-wizard.css" rel="stylesheet" />
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="~/wizard/assets/css/demo.css" rel="stylesheet" />
+
+    <!-- Fonts and Icons -->
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="~/wizard/assets/css/themify-icons.css" rel="stylesheet">
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    @{ var path = "~/wizard/assets/img/paper-1.jpeg";}
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="image-container set-full-height" style="background-image: url(@Url.Content(path));">
+        <!--   Creative Tim Branding   -->
+        <a asp-action="Index" asp-controller="Home">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="~/wizard/assets/img/new_logo.png">
+                </div>
+                <div class="brand">
+                    Tour Me
+                </div>
+            </div>
+        </a>
+
+        <!--  Made With Paper Kit  -->
+        <!--   Big container   -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <!--      Wizard container        -->
+                    <div class="wizard-container">
+                        <div class="card wizard-card" data-color="azure" id="wizard">
+                            <form action="BecomeCommercant" method="post" enctype="multipart/form-data">
+                                <!--        You can switch " data-color="green" "  with one of the next bright colors: "blue", "azure", "orange", "red"       -->
+
+                                <div class="wizard-header" id="5dmt">
+                                    <h3 class="wizard-title" >Devenir Commercant</h3>
+                                    <p id="demo"  style="font-size:18px;"class="category">Bonjour nous allons vous aider à devenir un commercant.</p>
+                                </div>
+                                <div class="wizard-navigation">
+                                    <div class="progress-with-circle">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="5" style="width: 15%;"></div>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="#service" data-toggle="tab">
+                                                <div class="icon-circle">
+                                                    <i class="ti-map"></i>
+                                                </div>
+                                                Type de de service
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#Compte" data-toggle="tab">
+                                                <div class="icon-circle">
+                                                    <i class="ti-direction-alt"></i>
+                                                </div>
+                                                Compte
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#informationGen" data-toggle="tab">
+                                                <div class="icon-circle">
+                                                    <i class="ti-panel"></i>
+                                                </div>
+                                                Information générales
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#informationGen2" data-toggle="tab">
+                                                <div class="icon-circle">
+                                                    <i class="ti-panel"></i>
+                                                </div>
+                                                Information Detaillé
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#Documents" data-toggle="tab">
+                                                <div class="icon-circle">
+                                                    <i class="ti-comments"></i>
+                                                </div>
+                                                Documents
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#previewPage" data-toggle="tab">
+                                                <div class="icon-circle">
+                                                    <i class="ti-comments"></i>
+                                                </div>
+                                                Confirmations
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="service">
+                                        <h5 class="info-text">Choisir le type de service ?</h5>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-sm-offset-3">
+                                                <div class="col-sm-3">
+                                                    <div class="radio" data-toggle="wizard-checkbox">
+                                                        <input type="radio" name="jobb" value="Transport">
+                                                        <div class="card card-checkboxes card-hover-effect">
+                                                            <i class="ti-car"></i>
+                                                            <p>Transport</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="radio" data-toggle="wizard-checkbox">
+                                                        <input type="radio" name="jobb" value="Nourriture">
+                                                        <div class="card card-checkboxes card-hover-effect">
+                                                            <i class="ti-apple"></i>
+                                                            <p>Restauration</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="radio" data-toggle="wizard-checkbox">
+                                                        <input type="radio" name="jobb" value="Logement">
+                                                        <div class="card card-checkboxes card-hover-effect">
+                                                            <i class="ti-home"></i>
+                                                            <p>Hebergement</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="Compte">
+                                        <div class="row">
+                                            <div class="col-sm-4 col-sm-offset-1">
+                                                <div class="picture-container">
+                                                    <div class="picture">
+                                                        <img  src="~/wizard/assets/img/default-avatar.jpg" class="picture-src" id="wizardPicturePreview" title="" />
+                                                        <input asp-for="FileP" id="wizard-picture">
+                                                    </div>
+                                                    <h6>Choisir Logo </h6>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Nom Juridique de la société <small>(required)</small></label>
+                                                    <input name="Titre" type="text" class="form-control" placeholder="Nom Juridique de la société">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Personne a contacter <small>(optional)</small></label>
+                                                    <input name="PersAContact" type="text" class="form-control" placeholder="Personne a contacter">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3 col-sm-offset-1">
+                                                <div class="form-group">
+                                                    <label>Téléphone a Contacter <small>(optional)</small></label>
+                                                    <input asp-for="NumPersAcontacter" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="form-group">
+                                                    <label>Email <small>(required)</small></label>
+                                                    <input asp-for="Email" class="form-control" placeholder="andrew@creative-tim.com">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5 col-sm-offset-1">
+                                                <div class="form-group">
+                                                    <label>Saisir votre Mot de passe<small>(required)</small></label>
+                                                    <input asp-for="Password" class="form-control" />
+                                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="form-group">
+                                                    <label>Confirmer votre Mot de passe<small>(required)</small></label>
+                                                    <input asp-for="ConfirmPassword" class="form-control" />
+                                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="informationGen">
+                                        <h5 class="info-text">Dites-nous plus d'informations générales </h5>
+                                        <div class="row">
+                                            <div class="col-sm-5 col-sm-offset-1">
+                                                <div class="form-group">
+                                                    <label>Pays</label>
+                                                    <select asp-for="PhoneNumberCountryCode" class="form-control" id="country" placeholder="Choisir pays" asp-items="@ViewBag.countries"></select>
+                                                    <span asp-validation-for="PhoneNumberCountryCode" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="form-group">
+                                                    <label>Numéro Téléphone</label>
+                                                    <input asp-for="Telephone" class="form-control">
+                                                    <span asp-validation-for="Telephone" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-sm-2 col-sm-offset-1">
+                                                <div class="form-group" id="test">
+                                                    <label id="gouvLabel">Entrer le Governourat </label>
+                                                    <select asp-for="region" class="form-control" placeholder="Choisir pays xx" asp-items="Html.GetEnumSelectList<TourMe.Data.Entities.Enum.Region>()">
+                                                    </select>
+
+                                                    <span asp-validation-for="region" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <label>Entrer le Code postale</label>
+                                                    <input asp-for="CodePostale" class="form-control">
+                                                    <span asp-validation-for="CodePostale" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Entrer l' Adresse</label>
+                                                    <input asp-for="Adresse" class="form-control">
+                                                    <span asp-validation-for="Adresse" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5 col-sm-offset-1">
+                                                <div class="form-group">
+                                                    <label>Entrer Votre Effective Homme </label>
+                                                    <input asp-for="EffectHomme" class="form-control" placeholder="Chiffre">
+                                                    <span asp-validation-for="EffectHomme" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="form-group">
+                                                    <label>Entrer Votre Effective Femme </label>
+                                                    <input asp-for="EffectFemme" class="form-control" placeholder="chiffre">
+                                                    <span asp-validation-for="EffectFemme" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="informationGen2">
+                                        <h5 class="info-text">Dites-nous plus d'informations Detaillé </h5>
+                                        <div class="row">
+                                            <div class="col-sm-2 col-sm-offset-1">
+                                                <div class="form-group">
+                                                    <label>Forme juridique</label>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" value="SUARL" name="Forme">
+                                                            SUARL
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" value="SARL" name="Forme">
+                                                            SARL
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" value="SA" name="Forme">
+                                                            SA
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <div class="form-group">
+                                                    <div class="radio" style="margin-left: -100px;margin-top: 35px;">
+                                                        <label>
+                                                            <input type="radio" value="SAS" name="Forme">
+                                                            SAS
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio" style="margin-left: -100px;">
+                                                        <label>
+                                                            <input type="radio" value="AUTRE" name="Forme">
+                                                            Autre
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                            </div><br />
+                                            <div class="col-sm-5">
+                                                <div class="form-group">
+                                                    <label>Acvitité</label><br>
+                                                                           <select id="transport" name="secteur" class="form-control valid" aria-invalid="false">
+                                                                               <option value="TransportReguliers"> Transport Réguliers de voyageurs,interurbain </option>
+                                                                               <option value="service auxiliers"> Service auxiliers de transport </option>
+                                                                               <option value="Transport urbain"> Transport urbain et suburbain de transport </option>
+                                                                               <option value="Transport publique non réguliers"> Transport publique non réguliers(louage,taxi...) </option>
+                                                                               <option value="Tranposrt touristique"> Transport touristique </option>
+                                                                               <option value="Tranposrt privé"> Transport privé </option>
+                                                                               <option value="Autre"> Autre </option>
+                                                                           </select>
+                                                    <select id="nourriture" name="secteur" class="form-control valid" aria-invalid="false">
+
+                                                        <option value="Débit de boissons alcoolisées"> Débit de boissons alcoolisées </option>
+                                                        <option value="Cafés"> Cafés </option>
+                                                        <option value="Services des traiteurs"> Services des traiteurs </option>
+                                                        <option value="Resatauration rapide"> Resatauration rapide </option>
+                                                        <option value="Resatauration traditionnelle "> Resatauration traditionnelle </option>                                                       
+                                                        <option value="Autre"> Autre </option>
+                                                    </select>
+                                                    <select id="logement" name="secteur" class="form-control valid" aria-invalid="false">
+
+                                                        <option value="Terrains de camping et parcs pour caravanes"> Terrains de camping et parcs pour caravanes </option>
+                                                        <option value="Hotéls et hébergement similaire"> Hotéls et hébergement similaire </option>
+                                                        <option value="Hébergement touristique et autre autre hébergement de court duréé"> Hébergement touristique et autre autre hébergement de court duréé </option>
+                                                        <option value="Location de logements"> Location de logements </option>
+                                                        <option value="Agence immobiliers"> Agence immobiliers </option>
+                                                        <option value="Autre"> Autre </option>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group" id="Suggestion">
+                                                    <label>Entrer votre secteur</label>
+                                                    <input name="SecteurAutre" type="text" class="form-control" placeholder="Secteur">
+                                                </div>
+                                            </div>
+                                            
+                                            
+
+                                            <div class="col-sm-2 col-sm-offset-2">
+                                                <div class="form-group">
+                                                    <label>N affiliation CNSS</label>
+                                                    <input asp-for="NumCnss" placeholder="1234567890" class="form-control">
+                                                    <span asp-validation-for="NumCnss" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Matricule Fiscale</label>
+                                                    <input asp-for="Identifiant_fiscale" placeholder="12345678X" class="form-control">
+                                                    <span asp-validation-for="Identifiant_fiscale" class="text-danger"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="Documents">
+                                        <div class="row">
+                                            <h5 class="info-text"> Document et Numéro fiscale </h5>
+                                            <div class="col-sm-4 col-sm-offset-1">
+                                                <div class="form-group">
+                                                    <div class="custom-file">
+                                                        <label class="custom-file-label">Veulleir Telecharger un copie de  la patente<small>(PDF)</small>...</label>
+                                                        <input asp-for="Documents" id="PATENTEUPLOAD" multiple class="form-control custom-file-input">
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="custom-file">
+                                                        <label class="custom-file-label">Veulleir Telecharger un copie de  la RNE</label>
+                                                        <input asp-for="Documents" id="RNEUPLOAD" multiple class="form-control custom-file-input">
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group" id="optionalFile">
+                                                    <div class="custom-file">
+                                                        <label class="custom-file-label" id="optionalLabel">Veulleir Telecharger un copie de  la RNE</label>
+                                                        <input asp-for="Documents" id="depends" multiple class="form-control custom-file-input">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Documents a Télécharger</label>
+                                                    <p class="description" id="docs">
+                                                        <b>-Patente.</b><br />
+                                                        <b>-RNE</b><br />
+                                                        <b id="writing"></b>
+                                                        <h5> -Un administrateur Va vérifier votre inscription.</h5>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                         
+                                           
+                                        </div>
+
+
+                                    </div>
+                                    <div class="tab-pane" id="previewPage">
+                                        <h5 class="info-text">Choisir le type de service ?</h5>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Type Service :</label>
+                                                    <input type="text" class="form-control" id="type" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Nom Sociéte :</label>
+                                                    <input type="text" class="form-control" id="nom" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Personne a Contacter :</label>
+                                                    <input type="text" class="form-control" id="persContacter" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Téléphone a Contacter :</label>
+                                                    <input type="text" class="form-control" id="TelContacter" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Email :</label>
+                                                    <input type="text" class="form-control" id="email" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Pays</label><br />
+                                                    <input type="text" class="form-control" id="pays" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Region</label><br>
+                                                    <input type="text" class="form-control" id="regionShow" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Numéro téléphone :</label>
+                                                    <input type="text" class="form-control" id="telEntreprise" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Adresse :</label><br />
+                                                    <input type="text" class="form-control" id="adresse" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Activité :</label><br />
+                                                    <input type="text" class="form-control" id="activité" disabled />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <label> N°affiliation CNSS  :</label><br />
+                                                    <input asp-for="NumCnss" class="form-control" id="CNSS" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <label> Matricule Fiscale  :</label><br />
+                                                    <input type="text" class="form-control" id="matFiscale" disabled />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label id="special"> Files uploaded  :</label><br /><br />
+                                                <div class="form-group">
+                                                    <label>Patente</label>
+                                                    <input type="text" class="form-control" id="patente" disabled />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Rne</label>
+                                                    <input type="text" class="form-control" id="rne" disabled />
+                                                </div>
+                                                <div id="fileOptional2" class="form-group">
+                                                    <label id="labelOptional2">optional</label>
+                                                    <input type="text" class="form-control" id="optional" disabled />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wizard-footer">
+                                        <div class="pull-right">
+                                            <input type='button' class='btn btn-next btn-fill btn-wd btn-primary' name='next' value='Next' />
+                                            <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Valider' />
+                                            <input type='button' class="btn btn-success" id="button" name='Confirm' value='Reviser' />
+                                        </div>
+
+                                        <div class="pull-left">
+                                            <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    @*script for showing multiple files*@
+                                    @section Scripts {
+
+                                        <script>
+
+                                            $(document).ready(function () {
+                                                $('.custom-file-input').on("change", function () {
+                                                    var fileLabel = $(this).next('.custom-file-label');
+                                                    var files = $(this)[0].files;
+                                                    if (files.length > 1) {
+                                                        fileLabel.html(files.length + ' files selected');
+                                                    }
+                                                    else if (files.length == 1) {
+                                                        fileLabel.html(files[0].name);
+                                                    }
+                                                });
+                                            });
+                                        </script>
+                                    }
+                                </div>
+                            </form>
+
+                        </div>
+                    </div> <!-- wizard container -->
+                </div>
+            </div> <!-- row -->
+        </div> <!--  big container -->
+
+        <div class="footer">
+
+        </div>
+
+    </div>
+    <script src="~/wizard/assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="~/wizard/assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/wizard/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+    <!--  Plugin for the Wizard -->
+    <script src="~/wizard/assets/js/demo.js" type="text/javascript"></script>
+    <script src="~/wizard/assets/js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+
+    <!--  More information about jquery.validate here: https://jqueryvalidation.org/	 -->
+    <script src="~/wizard/assets/js/jquery.validate.min.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+            
+            var $div = '<p style="font-size:18px;" id="demo"class="category">' + 'Bonjour nous allons vous aider à devenir un commercant de '+'</p>';
+             
+            $("[name=jobb]").on('change', function () {
+                $("#optionalFile").hide();
+                $("#depends").val('');
+                $("#writing").hide();
+                var value = $("input[name='jobb']:checked").val();
+                if (value == "Nourriture") {
+                    $("#nourriture").show();
+                    $("#transport").hide();
+                    $("#logement").hide();
+                    $("#transport").val('');
+                    $("#logement").val('');
+                    
+                    document.getElementById("demo").innerHTML = $div + '<b>Restauration</b>' +'<i style="font-size:18px;" class="ti-apple"></i> '+'<b>!</b>';
+                }
+                else if (value == "Logement") {
+
+                    $("#nourriture").hide();
+                    $("#transport").hide();
+                    $("#logement").show();
+                    $("#transport").val('');
+                    $("#nourriture").val('');                  
+                    document.getElementById("demo").innerHTML = $div + '<b>Hebergement</b> ' + '<i style="font-size:18px;" class="ti-home"></i> ' + '<b>!</b>';
+                }
+                else {
+
+                    $("#nourriture").hide();
+                    $("#transport").show();
+                    $("#logement").hide();
+                    $("#nourriture").val('');
+                    $("#logement").val('');                 
+                    document.getElementById("demo").innerHTML = $div + '<b>Transport</b>' + ' <i style="font-size:18px;"  class="ti-car"></i> ' + '<b>!</b>';
+                   
+
+                }
+
+
+
+            });
+            $("#nourriture").hide();
+            $("#transport").hide();
+            $("#logement").hide();
+            $("#transport").val('');
+            $("#logement").val('');
+            $("#nourriture").val('');         
+        });
+
+    </script>
+    @*afficher le drop list secteur avec le valuer du service*@
+   
+    <script>
+       
+
+        $(document).ready(function () {
+
+            $('select[name="secteur"]').change(function () {    
+                $("#depends").val('');
+                $docAlc = '<label class="custom-file-label" id="optionalLabel">';
+                if ($(this).val() == "Autre") {
+
+                    $("#optionalFile").hide();
+                    $("#writing").hide();
+                    $("#Suggestion").show();
+
+                }
+                else {
+
+                    $("#Suggestion").hide();
+                    $("#optionalFile").hide();
+                    $("#writing").hide();
+                    if (($(this).val() == "Débit de boissons alcoolisées") || ($(this).val() == "TransportReguliers")   || ($(this).val() == "Transport publique non réguliers") || ($(this).val() == "Tranposrt touristique") || ($(this).val() == "Tranposrt privé"))
+                    {
+                        $("#optionalFile").show();
+                        $("#writing").show();
+
+                        if ($(this).val() == "Débit de boissons alcoolisées") {
+                            document.getElementById("optionalLabel").innerHTML = $docAlc + 'Veulleir Telecharger une copie de la Licence pour débits de boissons de deuxième et troisième catégorie et Restaurants avec boissons alcoolisées' + '</label>';
+                            document.getElementById("writing").innerHTML = ('<b>-la Licence pour débits de boissons de deuxième et troisième catégorie et Restaurants avec boissons alcoolisées<b>');
+                        }
+                        else
+                        {
+                            switch ($(this).val())                        
+                            {
+                                case "TransportReguliers":
+                                    document.getElementById("optionalLabel").innerHTML = $docAlc + 'CAD transport réguliers' + '</label>';
+                                    document.getElementById("writing").innerHTML = ('<b>-CAD transport réguliers<b>');
+                                    break;
+                                case "Transport publique non réguliers":
+                                    document.getElementById("optionalLabel").innerHTML = $docAlc + 'CAD transport non réguliers (taxi,louage...)' + '</label>';
+                                    document.getElementById("writing").innerHTML = ('<b>-CAD transport non réguliers<b>');
+                                    break;
+                                case "Tranposrt touristique":
+                                    document.getElementById("optionalLabel").innerHTML = $docAlc + 'CAD transport touristique' + '</label>';
+                                    document.getElementById("writing").innerHTML = ('<b>-CAD transport touristique<b>');
+                                    break;
+                                default: 
+                                    document.getElementById("optionalLabel").innerHTML = $docAlc + 'CAD transport privé' + '</label>';
+                                    document.getElementById("writing").innerHTML = ('<b>-CAD transport privé<b>');
+                            } 
+                            
+
+                        }
+                    }              
+            }
+               
+            });
+            $("#writing").hide();
+            $("#optionalFile").hide();
+            $("#Suggestion").hide();
+        });
+    </script>
+    <script>
+        //afficher region
+        $(document).ready(function () {
+
+
+            $("#country").change(function () {
+                if ($(this).val() == "TN") {
+
+                    $("#test").show();
+
+                }
+                else {
+                    $("#test").hide();
+
+                }
+            });
+            $("#test").hide();
+        });
+    </script>
+    @*//preview*@
+    <script>
+        //preview button
+        $(document).ready(function () {
+            $("#fileOptional2").hide();
+            $("#button").click(function () {
+                //reading the information
+                var fileRNE = document.getElementById("RNEUPLOAD").value.split("\\").pop();
+                var filePatente = document.getElementById("PATENTEUPLOAD").value.split("\\").pop();
+                var fileOption = document.getElementById("depends").value.split("\\").pop();
+                var typeService = $("input[name='jobb']:checked").val();
+                var Titre = $("input[name='Titre']").val();
+                var PersAContact = $("input[name='PersAContact']").val();
+                var NumPersAcontacter = $("input[name='NumPersAcontacter']").val();
+                var Email = $("input[name='Email']").val();
+                var Telephone = $("input[name='Telephone']").val();
+                var PhoneNumberCountryCode = $('select[name="PhoneNumberCountryCode"]').find(":selected").text();               
+                var region = $('select[name="region"]').find(":selected").text();
+                var CodePostale = $("input[name='CodePostale']").val();
+                var Adresse = $("input[name='Adresse']").val();
+                var EffectHomme = $("input[name='EffectHomme']").val(); 
+                var EffectFemme = $("input[name='EffectFemme']").val();
+                var Forme = $("input[name='Forme']").val();
+                var secteur = $('select[name="secteur"]').find(":selected").text();            
+                var NumCnss = $("input[name='NumCnss']").val();
+                var Identifiant_fiscale = $("input[name='Identifiant_fiscale']").val();
+                var Documents = $("input[name='Documents']").val();
+                var secteurAutre = $("input[name='SecteurAutre']").val();
+                //writing the information
+                $("#type").val(typeService);
+                $("#nom").val(Titre);
+                $("#persContacter").val(PersAContact);
+                $("#TelContacter").val(NumPersAcontacter);
+                $("#email").val(Email);
+                $("#pays").val(PhoneNumberCountryCode);
+                $("#regionShow").val(region);
+                $("#telEntreprise").val(Telephone);
+                $("#adresse").val(Adresse);
+                
+                if (secteur.match("Autre")) {
+                    
+                    $("#activité").val(secteurAutre); 
+                } else {
+                    $("#activité").val(secteur);
+                  
+                }
+                if (fileOption == "")
+                {
+                    
+                    $("#fileOptional2").hide();
+                }
+                else
+                {
+                    $("#fileOptional2").show();
+                    $("#optional").val(fileOption);
+
+                }
+                $("#CNSS").val(NumCnss);
+                $("#matFiscale").val(Identifiant_fiscale);
+                $("#patente").val(filePatente);
+                $("#rne").val(fileRNE);
+               
+                
+
+            });
+        });
+
+    </script>
+</body>
+
+<!--   Core JS Files   -->
+
+
+</html>

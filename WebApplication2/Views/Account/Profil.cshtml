@@ -1,0 +1,162 @@
+﻿@model Domaine.Entities.Utilisateur
+@using Microsoft.AspNetCore.Identity;
+
+
+@{var photoPath = "~/images/" + (Model.ProfilePhoto ?? "noimage.jpg");
+
+}
+
+
+<section>
+    @{ int a = 0;
+        <div class="db">
+            <!--LEFT SECTION-->
+            <div class="db-l">
+                <div class="db-l-1">
+                    <ul>
+                        <li>
+                            <img src="@photoPath" asp-append-version="true" alt="" />
+                            <a asp-action="ChangerPhoto" asp-controller="Account" asp-route-id="@Model.Id" class="waves-effect waves-light btn-sm"><b>Change photo</b></a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div class="db-l-2">
+                    <ul>
+                        <li>
+                            <a href="#"><img src="~/Theme/Template2/images/icon/dbl1.png" alt="" /> Mes Réservations</a>
+                        </li>
+                        <li>
+                            <a href="db-travel-booking.html"><img src="~/Theme/Template2/images/icon/dbl2.png" alt="" /> Travel Bookings</a>
+                        </li>
+                        <li>
+                            <a href="db-hotel-booking.html"><img src="~/Theme/Template2/images/icon/dbl3.png" alt="" /> Hotel Bookings</a>
+                        </li>
+                        <li>
+                            <a href="db-event-booking.html"><img src="~/Theme/Template2/images/icon/dbl4.png" alt="" /> Event Bookings</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Account" asp-action="Profil"><img src="images/icon/dbl6.png" alt="" /> My Profile</a>
+                        </li>
+                        <li>
+                            <a href="db-all-payment.html"><img src="images/icon/dbl9.png" alt="" /> Payments</a>
+                        </li>
+                        <li>
+                            <a href="db-refund.html"><img src="images/icon/dbl7.png" alt="" /> Claim & Refund</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--CENTER SECTION-->
+            <div class="db-2">
+                <div class="db-2-com db-2-main">
+                    <h4>My Profile</h4>
+                    <div class="db-2-main-com db-2-main-com-table">
+                        <form method="post" asp-controller="Account" asp-action="Edit">
+
+
+                            <table class="responsive-table">
+                                <tbody>
+                                    <tr>
+                                        <td>Nom</td>
+                                        <td>:</td>
+                                        <td>
+                                            <input class="form-control" asp-for="Nom" value="@Model.Nom ">
+                                            @if (Model.Nom != null)
+                                            {
+                                                a += 12;
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prénom</td>
+                                        <td>:</td>
+                                        <td>
+                                            <input asp-for="Prenom" class="form-control" value="@Model.Prenom">
+                                            @if (Model.Prenom != null)
+                                            {
+                                                a += 12;
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nickname</td>
+                                        <td>:</td>
+                                        <td>
+                                            <input asp-for="NickName" class="form-control" value="@Model.NickName">
+                                            @if (Model.NickName != null)
+                                            {
+                                                a += 12;
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>:</td>
+                                        <td>
+                                            <input class="form-control" asp-for="Email" value="@Model.Email">
+                                            @if (Model.Email != null)
+                                            {
+                                                a += 12;
+                                            }
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Date of birth</td>
+                                        <td>:</td>
+                                        <td>
+                                            <input asp-for="BirthDate" value="@Model.BirthDate.ToString("MM/dd/yyyy") ">
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Country</td>
+                                        <td>:</td>
+                                        <td>
+
+                                            <select asp-for="Country" placeholder="Choisir pays" asp-items="@ViewBag.countries"></select>
+                                            <span asp-validation-for="Country" class="text-danger"></span>
+
+                                            @if (Model.Country != null)
+                                            {
+                                                a += 12;
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td>:</td>
+                                        <td>
+                                            <input class="form-control" asp-for="Telephone" value="@Model.PhoneNumber">
+                                            @if (Model.PhoneNumber != null)
+                                            {
+                                                a += 12;
+                                            }
+                                        </td>
+                                    </tr>
+                                    <span>@a%</span>du profile est complet
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>:</td>
+                                        <td>
+                                            <span class="db-done">Active</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="db-mak-pay-bot">
+                                <button type="submit" class="waves-effect waves-light btn-large">Edit my profile</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        }
+    </section>
+<!--END DASHBOARD-->
